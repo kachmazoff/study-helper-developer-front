@@ -13,7 +13,7 @@ function App() {
     <Router>
       <div>
         <nav>
-          <Link to="/">API</Link>
+          <Link to="/">Главная</Link>
           <Link to="/articles">Статьи</Link>
           <Link to="/types">Типы</Link>
           {/* <Link to="/users">Пользователи(404)</Link> */}

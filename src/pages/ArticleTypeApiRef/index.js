@@ -4,8 +4,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { getArticlesTypes } from '../../services/articlesTypesApi'
+import { isAuthenticated } from '../../services/authApi'
+import { getTypes } from '../../services/articlesTypesApi'
 import CreateArticleTypeForm from '../../forms/CreateArticleTypeForm';
+import TypeView from '../../components/TypeView'
+import TypeEditForm from '../../forms/TypeEditForm';
+import ProtectedRoute from '../../HOC/ProtectedRoute';
 
 function ArticleTypeRefId(props) {
   const [types, setTypes] = React.useState([])
@@ -13,7 +17,7 @@ function ArticleTypeRefId(props) {
 
   const fetchTypes = React.useCallback(() => {
     setIsLoading(true)
-    getArticlesTypes()
+    getTypes()
       .then(res => {
         if (Array.isArray(res)) setTypes(res)
         setIsLoading(false)
@@ -29,21 +33,21 @@ function ArticleTypeRefId(props) {
           <Link to="/types/create">Создать</Link>
         </nav>
         <Switch>
-          <Route path="/types/create">
-            <CreateArticleTypeForm />
-          </Route>
+          <ProtectedRoute path="/types/create" component={CreateArticleTypeForm} />
+          <ProtectedRoute path="/types/:id/edit" component={ TypeEditForm }/>
           <Route path="/types">
             {
               !isLoading
                 ? <button type="button" onClick={fetchTypes}>Запрос</button>
                 : <p>Загрузка...</p>
             }
+            
             {
               Array.isArray(types) && types.length > 0
               && (
                 <ol>
                   {
-                    types.map((type, index) => <li key={index}>{type.name}</li>)
+                    types.map((type, index) => <li key={index}><TypeView data={ type } readonly={ !isAuthenticated() }/></li>)
                   }
                 </ol>
               )

@@ -6,19 +6,13 @@ function registration(username, password) {
     password,
   }
 
-  fetch(baseApiUrl + '/account/create', {
+  return fetch(baseApiUrl + '/account/create', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
     },
     body: JSON.stringify(body)
   })
-  .then(response => {
-    console.log(response.headers)
-  });
-
-  // let result = await response.json();
-  // return result;
 }
 
 function login(username, password) {
@@ -37,8 +31,6 @@ function login(username, password) {
     body: JSON.stringify(body)
   })
   .then(response => {
-    console.log(response)
-    console.log(response.headers.get('Authorization'))
     document.cookie = `token=${response.headers.get('Authorization')}`
     document.location = document.location
   });
@@ -60,10 +52,15 @@ function isAuthenticated() {
   return !!getToken()
 }
 
+function getUsername() {
+  return isAuthenticated() && JSON.parse(atob(getToken().split('.')[1])).sub;
+}
+
 export {
   registration,
   login,
   logout,
   getToken,
   isAuthenticated,
+  getUsername,
 }
