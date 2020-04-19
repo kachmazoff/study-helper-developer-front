@@ -9,7 +9,7 @@ function CommentCreateView({ articleId }) {
     console.log(text, articleId)
     createComment(articleId, text)
       .then(() => {
-        // document.location = document.location
+        document.location = document.location
       })
   }, [articleId])
 
