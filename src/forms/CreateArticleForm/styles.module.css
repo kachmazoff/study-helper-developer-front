@@ -1,0 +1,15 @@
+.form>div>input {
+    width: 68%;
+    margin-right: 2%;
+}
+
+.form>div>select {
+    width: 30%;
+    height: 33px;
+
+}
+
+.form textarea {
+    min-height: 400px;
+    resize: vertical;
+}

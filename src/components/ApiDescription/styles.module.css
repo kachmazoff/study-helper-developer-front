@@ -1,0 +1,35 @@
+.row {
+    display: flex;
+    /* padding: 0.5rem 1rem; */
+    /* border-radius: 10px; */
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.row * {
+    padding: 0.5rem 2rem;
+
+}
+
+.row:hover {
+    background-color: #e1e1e1;
+}
+
+.type {
+    /* padding: 0.5rem 2rem; */
+    /* border-radius: 10px 0 0 10px; */
+    width: 70px;
+    text-align: center;
+}
+
+.type_get {
+    background-color: #7cff80;
+}
+
+.type_post {
+    background-color: #ff7c7c;
+}
+
+.url {
+    width: 300px;
+}
