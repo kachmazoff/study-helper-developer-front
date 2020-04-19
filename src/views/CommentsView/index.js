@@ -1,51 +1,24 @@
 import React from 'react'
 
 import CommentsList from '../../components/CommentsList'
+import { getComments } from '../../services/commentsApi'
 
-const dataCom = [
-  {
-    author: {
-      username: 'root'
-    },
-    text: 'Some comment??!?!?',
-  },
-  {
-    author: {
-      username: 'root'
-    },
-    text: 'Some comment??!?!?',
-  },
-  {
-    author: {
-      username: 'root'
-    },
-    text: 'Some comment??!?!?',
-  },
-  {
-    author: {
-      username: 'root'
-    },
-    text: 'Some comment??!?!?',
-  },
-  {
-    author: {
-      username: 'root'
-    },
-    text: 'Some comment??!?!?',
-  },
-  {
-    author: {
-      username: 'root'
-    },
-    text: 'Some comment??!?!?',
-  },
-]
+function CommentsView({articleId}) {
+  const [data, setData] = React.useState(null)
+  React.useEffect(() => {
+    getComments(articleId)
+    .then(setData)
+  }, [articleId])
 
-function CommentsView(params) {
   return (
     <div>
-      <h4>Комментарии: </h4>
-      <CommentsList data={dataCom} />
+      {
+        data
+        && <>
+          <h4>Комментарии: </h4>
+          <CommentsList data={data} />
+        </>
+      }
     </div>
   )
 }

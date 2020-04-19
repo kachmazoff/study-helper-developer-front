@@ -25,10 +25,10 @@ function FullArticleView(props) {
             <>
               <ArticleFull data={data} />
               <hr />
-              <CommentsView />
+              <CommentsView articleId={data.id} />
               {
                 isAuthenticated()
-                && <CommentCreateView id={data.id} />
+                && <CommentCreateView articleId={data.id} />
               }
             </>
           )

@@ -3,11 +3,11 @@ import { getQuery, postQuery } from './commonApi'
 const endpoint = '/comments'
 
 function getComments(articleId) {
-  return getQuery(endpoint)
+  return getQuery(`/articles/${articleId}/comments`)
 }
 
 function createComment(articleId, text) {
-  return postQuery(endpoint, { text })
+  return postQuery(`/articles/${articleId}/comments`, { text })
 }
 
 function replyComment(id, text) {

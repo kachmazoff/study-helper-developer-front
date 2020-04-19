@@ -6,9 +6,10 @@ function CommentCreateView({ articleId }) {
   const [isLoading, setIsLoading] = React.useState(false)
   const onSubmit = React.useCallback((text) => {
     setIsLoading(true)
+    console.log(text, articleId)
     createComment(articleId, text)
       .then(() => {
-        document.location = document.location
+        // document.location = document.location
       })
   }, [articleId])
 
