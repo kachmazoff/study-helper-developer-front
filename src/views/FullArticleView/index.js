@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getArticle } from '../../services/articlesApi'
+import { getArticle, getArticleViews } from '../../services/articlesApi'
 import ArticleFull from '../../components/ArticleFull'
 import CommentsView from '../../views/CommentsView'
 import { isAuthenticated } from '../../services/authApi'
@@ -8,11 +8,13 @@ import CommentCreateView from '../CommentCreateView'
 
 function FullArticleView(props) {
   const [data, setData] = React.useState(null)
+  const [views, setViews] = React.useState(null)
 
   React.useEffect(() => {
     getArticle(props.match.params.id)
       .then((d) => {
         setData(d)
+        getArticleViews(props.match.params.id).then(setViews)
       })
   }, [props.match.params.id])
 
@@ -23,12 +25,15 @@ function FullArticleView(props) {
           ? <p>Загрузка...</p>
           : (
             <>
-              <ArticleFull data={data} />
+              <ArticleFull data={data} views={views}/>
               <hr />
               <CommentsView articleId={data.id} />
               {
                 isAuthenticated()
-                && <CommentCreateView articleId={data.id} />
+                && <>
+                <br></br>
+                <CommentCreateView articleId={data.id} />
+                </>
               }
             </>
           )

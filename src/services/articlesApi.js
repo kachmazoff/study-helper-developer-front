@@ -26,6 +26,10 @@ function getMyArticles() {
   return getQuery(endpoint + '/my')
 }
 
+function getArticleViews(id) {
+  return getQuery(endpoint + `/${id}/stat`)
+}
+
 export {
   getArticles,
   createArticle,
@@ -33,4 +37,5 @@ export {
   getArticlesByType,
   editArticle,
   getMyArticles,
+  getArticleViews,
 }

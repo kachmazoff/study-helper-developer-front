@@ -9,6 +9,7 @@ import { getTypes } from '../../services/articlesTypesApi'
 import CreateArticleTypeForm from '../../forms/CreateArticleTypeForm';
 import TypeView from '../../components/TypeView'
 import TypeEditForm from '../../forms/TypeEditForm';
+import ProtectedRoute from '../../HOC/ProtectedRoute';
 
 function ArticleTypeRefId(props) {
   const [types, setTypes] = React.useState([])
@@ -32,10 +33,8 @@ function ArticleTypeRefId(props) {
           <Link to="/types/create">Создать</Link>
         </nav>
         <Switch>
-          <Route path="/types/create">
-            <CreateArticleTypeForm />
-          </Route>
-          <Route path="/types/:id/edit" component={ TypeEditForm }/>
+          <ProtectedRoute path="/types/create" component={CreateArticleTypeForm} />
+          <ProtectedRoute path="/types/:id/edit" component={ TypeEditForm }/>
           <Route path="/types">
             {
               !isLoading

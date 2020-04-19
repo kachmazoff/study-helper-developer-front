@@ -13,7 +13,7 @@ function CommentsView({articleId}) {
   return (
     <div>
       {
-        data
+        Array.isArray(data) && data.length > 0
         && <>
           <h4>Комментарии: </h4>
           <CommentsList data={data} />

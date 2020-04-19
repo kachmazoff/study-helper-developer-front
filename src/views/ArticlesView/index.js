@@ -25,6 +25,7 @@ function ArticlesView(props) {
     }
     else {
       getArticles().then((res) => {
+        res.reverse()
         setData(res)
         setIsLoading(false)
       })
