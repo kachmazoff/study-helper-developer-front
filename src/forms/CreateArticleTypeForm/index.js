@@ -1,13 +1,13 @@
 import React from 'react'
 
-import {createArticleType} from '../../services/articlesTypesApi'
+import { createType } from '../../services/articlesTypesApi'
 
 function CreateArticleTypeForm() {
   const [name, setName] = React.useState(null)
 
   const onSubmit = React.useCallback((event) => {
     event.preventDefault()
-    createArticleType({
+    createType({
       name
     })
   }, [name])

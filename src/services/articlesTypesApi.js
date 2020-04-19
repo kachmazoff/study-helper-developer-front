@@ -2,15 +2,25 @@ import { getQuery, postQuery } from './commonApi'
 
 const endpoint = '/articles/types'
 
-function getArticlesTypes() {
+function getTypes() {
   return getQuery(endpoint)
 }
 
-function createArticleType(type) {
+function getType(id) {
+  return getQuery(endpoint + `/${id}`)
+}
+
+function createType(type) {
   return postQuery(endpoint, type)
 }
 
+function editType(type) {
+  return postQuery(endpoint + `/${ type.id }`, type)
+}
+
 export {
-  getArticlesTypes,
-  createArticleType,
+  getTypes,
+  getType,
+  createType,
+  editType,
 }
