@@ -8,10 +8,11 @@ import styles from './styles.module.css'
 function Main(props) {
   return (
     <div>
-      <h1>API reference</h1>
+      <h1>Подборки</h1>
 
       <main>
-        <ul className={styles.endpoints}>
+        <p style={{color: 'gray'}}>Совсем скоро здесь будет кое-что очень крутое...</p>
+        {/* <ul className={styles.endpoints}>
           {
             endpointsConfig.map((x, index) => {
               return (
@@ -21,7 +22,7 @@ function Main(props) {
               )
             })
           }
-        </ul>
+        </ul> */}
       </main>
     </div>
   )

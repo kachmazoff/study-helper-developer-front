@@ -32,6 +32,6 @@ async function getQuery(endpoint) {
 }
 
 export {
-    postQuery,
-    getQuery,
+  postQuery,
+  getQuery,
 }
