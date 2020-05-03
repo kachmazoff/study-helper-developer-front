@@ -30,6 +30,22 @@ function getArticleViews(id) {
   return getQuery(endpoint + `/${id}/stat`)
 }
 
+function getRelations(articleId) {
+  return getQuery(endpoint + `/${articleId}/relations`)
+}
+
+function addRelations(articleId, dependencies) {
+  return postQuery(endpoint + `/${articleId}/relations`, dependencies)
+}
+
+function getDependencies(articleId) {
+  return getQuery(endpoint + `/${articleId}/dependencies`)
+}
+
+function addDependencies(articleId, dependencies) {
+  return postQuery(endpoint + `/${articleId}/dependencies`, dependencies)
+}
+
 export {
   getArticles,
   createArticle,
@@ -38,4 +54,8 @@ export {
   editArticle,
   getMyArticles,
   getArticleViews,
+  getRelations,
+  addRelations,
+  getDependencies,
+  addDependencies,
 }

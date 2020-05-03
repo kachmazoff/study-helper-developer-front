@@ -31,21 +31,25 @@ function login(username, password) {
     body: JSON.stringify(body)
   })
   .then(response => {
-    document.cookie = `token=${response.headers.get('Authorization')}`
-    document.location = document.location
+    saveToken(response.headers.get('Authorization'))
+    document.location.reload();
+
+    // document.location = document.location
   });
 }
 
 function logout() {
-  document.cookie = "token=; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-  document.location = document.location
+  localStorage.removeItem('token')
+  document.location.reload();
+  // document.location = document.location
+}
+
+function saveToken(token) {
+  localStorage.setItem('token', token)
 }
 
 function getToken() {
-  let matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + 'token'.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
+  return localStorage.getItem('token')
 }
 
 function isAuthenticated() {
