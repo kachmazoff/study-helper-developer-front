@@ -26,7 +26,7 @@ function ArticlePreview({ data }) {
         } */}
       </div>
       <div className={styles.info}>
-        <TypeLink data={data.type} />
+        {/* <TypeLink data={data.type} /> */}
         {` Автор: ${data.creator.username} `}
       </div>
     </div>
