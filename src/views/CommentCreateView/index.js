@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentForm from '../../forms/CommentForm'
 import { createComment } from '../../services/commentsApi'
+import Card from '../../components/Card'
 
 function CommentCreateView({ articleId }) {
   const [isLoading, setIsLoading] = React.useState(false)
@@ -14,13 +15,15 @@ function CommentCreateView({ articleId }) {
   }, [articleId])
 
   return (
-    <div>
+    <Card>
+      {/* <div> */}
       {
         isLoading
           ? <p>Подождите...</p>
           : <CommentForm onSubmit={onSubmit} />
       }
-    </div>
+      {/* </div> */}
+    </Card>
   )
 }
 

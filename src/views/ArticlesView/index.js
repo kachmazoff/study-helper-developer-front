@@ -7,6 +7,8 @@ import {
 import { getArticles, getArticlesByType } from '../../services/articlesApi'
 import ArticlesList from '../../components/ArticlesList';
 import ArticlePreview from '../../components/ArticlePreview';
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 function ArticlesView(props) {
   const [data, setData] = React.useState([])
@@ -25,7 +27,6 @@ function ArticlesView(props) {
     }
     else {
       getArticles().then((res) => {
-        res.reverse()
         setData(res)
         setIsLoading(false)
       })
@@ -39,9 +40,16 @@ function ArticlesView(props) {
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)
-        && <ArticlesList data={data} component={ArticlePreview} />
+        && <Row>
+          <Col md={6}>
+            <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
+          </Col>
+          <Col md={6}>
+            <ArticlesList data={data.slice(data.length / 2)} component={ArticlePreview} />
+          </Col>
+        </Row>
       }
-      {  
+      {
         (!isLoading && Array.isArray(data) && data.length === 0)
         && <p>Ничего не найдено :-(</p>
       }

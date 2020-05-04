@@ -1,11 +1,10 @@
 .form>div>input {
-    width: 68%;
-    margin-right: 2%;
+    /* width: 60%; */
 }
 
 .form>div>select {
     width: 30%;
-    height: 33px;
+    /* height: 33px; */
 }
 
 .form textarea {

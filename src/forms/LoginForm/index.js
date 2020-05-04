@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { login } from '../../services/authApi'
+import Button from 'react-bootstrap/Button'
 
 function LoginForm() {
   const [username, setUsername] = React.useState("")
@@ -15,7 +16,10 @@ function LoginForm() {
     <form onSubmit={ onSubmit }>
       <input type="text" placeholder="Логин" required value={ username } onChange={e => setUsername(e.target.value)} />
       <input type="password" placeholder="Пароль" required value={ password } onChange={e => setPassword(e.target.value)} />
-      <input type="submit" value="Войти" />
+      <Button type="submit">
+        Войти
+      </Button>
+      {/* <input type="submit" value="Войти" /> */}
     </form>
   )
 }

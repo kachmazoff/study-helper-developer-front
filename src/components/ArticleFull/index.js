@@ -6,7 +6,7 @@ function ArticleFull({ data, views }) {
   return (
     <div>
       <div className={styles.title}>
-        <h3>{data.title}</h3>
+        <h2>{data.title}</h2>
         <p>{`${data.type.name}. Автор: ${data.creator.username}.`}
         {
           views && ` Просмотров: ${views}`
