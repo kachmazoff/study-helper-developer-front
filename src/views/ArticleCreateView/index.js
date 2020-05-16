@@ -20,6 +20,9 @@ function ArticleCreateView(props) {
 
   const onSubmit = useCallback((newData) => {
     createArticle(newData)
+    .then(() => {
+      document.location = '/articles'
+    })
   }, [])
 
   return (
