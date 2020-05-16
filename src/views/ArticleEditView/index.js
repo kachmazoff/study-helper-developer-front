@@ -3,6 +3,8 @@ import { getArticle, editArticle } from '../../services/articlesApi'
 import { getTypes } from '../../services/articlesTypesApi'
 import ArticleForm from '../../forms/ArticleForm'
 
+import ArticleDependenciesView from '../ArticleDependenciesView'
+
 function ArticleEditView({ id }) {
   const [data, setData] = React.useState({})
   const [types, setTypes] = React.useState(null)
@@ -37,7 +39,12 @@ function ArticleEditView({ id }) {
       }
       {
         (!isLoading && data && types)
-        && <ArticleForm types={types} data={data} onSubmit={onSubmit} actionText="Изменить"/>
+        && (
+        <>
+          <ArticleForm types={types} data={data} onSubmit={onSubmit} actionText="Изменить"/>
+          <ArticleDependenciesView articleId={id}/>
+        </>
+        )
       }
       {
         (!isLoading && (!data || !types))

@@ -2,6 +2,14 @@ import { getQuery, postQuery } from './commonApi'
 
 const endpoint = '/articles'
 
+function getNewArticles() {
+  return getQuery(endpoint + "/new")
+}
+
+function getLastViewedArticles() {
+  return getQuery(endpoint + "/lastViewed")
+}
+
 function getArticles() {
   return getQuery(endpoint)
 }
@@ -30,7 +38,25 @@ function getArticleViews(id) {
   return getQuery(endpoint + `/${id}/stat`)
 }
 
+function getRelations(articleId) {
+  return getQuery(endpoint + `/${articleId}/relations`)
+}
+
+function addRelations(articleId, dependencies) {
+  return postQuery(endpoint + `/${articleId}/relations`, dependencies)
+}
+
+function getDependencies(articleId) {
+  return getQuery(endpoint + `/${articleId}/dependencies`)
+}
+
+function addDependencies(articleId, dependencies) {
+  return postQuery(endpoint + `/${articleId}/dependencies`, dependencies)
+}
+
 export {
+  getNewArticles,
+  getLastViewedArticles,
   getArticles,
   createArticle,
   getArticle,
@@ -38,4 +64,8 @@ export {
   editArticle,
   getMyArticles,
   getArticleViews,
+  getRelations,
+  addRelations,
+  getDependencies,
+  addDependencies,
 }

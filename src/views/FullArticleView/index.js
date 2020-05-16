@@ -5,6 +5,8 @@ import ArticleFull from '../../components/ArticleFull'
 import CommentsView from '../../views/CommentsView'
 import { isAuthenticated } from '../../services/authApi'
 import CommentCreateView from '../CommentCreateView'
+import RecommendationsView from '../RecommendationsView'
+import Card from '../../components/Card'
 
 function FullArticleView(props) {
   const [data, setData] = React.useState(null)
@@ -25,16 +27,20 @@ function FullArticleView(props) {
           ? <p>Загрузка...</p>
           : (
             <>
-              <ArticleFull data={data} views={views}/>
-              <hr />
-              <CommentsView articleId={data.id} />
+              <Card color="white">
+                <ArticleFull data={data} views={views} />
+              </Card>
               {
                 isAuthenticated()
                 && <>
-                <br></br>
-                <CommentCreateView articleId={data.id} />
+                  <br />
+                  <RecommendationsView articleId={data.id} />
+                  <br />
+                  <CommentCreateView articleId={data.id} />
+                  <br />
                 </>
               }
+              <CommentsView articleId={data.id} />
             </>
           )
       }

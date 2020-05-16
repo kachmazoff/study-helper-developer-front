@@ -1,5 +1,10 @@
 import React from 'react'
 
+import InputGroup from 'react-bootstrap/InputGroup'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Button from 'react-bootstrap/Button'
+import FormControl from 'react-bootstrap/FormControl'
+
 import styles from './styles.module.css'
 
 function ArticleForm({ types, data, actionText, onSubmit }) {
@@ -17,11 +22,13 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
 
   const onSelect = React.useCallback((event) => {
     const formCopy = { ...editableData }
-    formCopy.type = {
-      id: event.target.value
-    }
+
+    // formCopy.type = {
+    //   id: event.target.value
+    // }
+    formCopy.type = types.find(x => x.id == event.target.value)
     setEditableData(formCopy)
-  }, [editableData])
+  }, [editableData, types])
 
   const onChangeContent = React.useCallback((event) => {
     const formCopy = { ...editableData }
@@ -36,17 +43,28 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
 
   return (
     <form className={styles.form} onSubmit={onSubmitLocal}>
-      <div>
-        <input type="text" placeholder="Заголовок" value={editableData.title} onChange={onChangeTitle} required />
-        <select required onChange={onSelect} value={editableData.type && editableData.type.id}>
+      <InputGroup>
+        <FormControl
+          placeholder="Заголовок"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          value={editableData.title}
+          onChange={onChangeTitle}
+          required
+        />
+        <FormControl
+          as="select"
+          onChange={onSelect}
+          value={editableData.type && editableData.type.id}
+        >
           <option readOnly>Тип</option>
           {
             types.map((type) => <option key={type.id} value={type.id}>{type.name}</option>)
           }
-        </select>
-      </div>
+        </FormControl>
+      </InputGroup>
       <textarea placeholder="Текст статьи" onChange={onChangeContent} value={editableData.content} />
-      <input type="submit" value={actionText} />
+      <Button type="submit">{actionText}</Button>
     </form>
   )
 }

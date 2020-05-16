@@ -1,37 +1,25 @@
 import React from 'react'
 
-import {
-  useLocation
-} from "react-router-dom";
-
-import { getArticles, getArticlesByType } from '../../services/articlesApi'
+import { getCommonRecommendations } from '../../services/recommendationApi'
 import ArticlesList from '../../components/ArticlesList';
 import ArticlePreview from '../../components/ArticlePreview';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-function ArticlesView(props) {
+function CommonRecommendationsView() {
   const [data, setData] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(false)
-  const { search } = useLocation()
 
   React.useEffect(() => {
     setIsLoading(true)
-    const params = new URLSearchParams(search)
-    const typeId = params.get('type');
-    if (typeId) {
-      getArticlesByType(typeId).then((res) => {
-        setData(res)
+    getCommonRecommendations()
+      .then((res) => {
         setIsLoading(false)
+        if (Array.isArray(res)) {
+          setData(res)
+        }
       })
-    }
-    else {
-      getArticles().then((res) => {
-        setData(res)
-        setIsLoading(false)
-      })
-    }
-  }, [search])
+  }, [])
 
   return (
     <div>
@@ -42,10 +30,10 @@ function ArticlesView(props) {
         (!isLoading && Array.isArray(data) && data.length > 0)
         && <Row>
           <Col md={6}>
-            <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
+            <ArticlesList data={data.slice(0, Math.min(data.length / 2, 5))} component={ArticlePreview} />
           </Col>
           <Col md={6}>
-            <ArticlesList data={data.slice(data.length / 2)} component={ArticlePreview} />
+            <ArticlesList data={data.slice(Math.min(data.length / 2, 5), Math.min((data.length / 2) * 2, 10))} component={ArticlePreview} />
           </Col>
         </Row>
       }
@@ -57,4 +45,4 @@ function ArticlesView(props) {
   )
 }
 
-export default ArticlesView
+export default CommonRecommendationsView
