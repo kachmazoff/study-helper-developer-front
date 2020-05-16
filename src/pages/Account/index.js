@@ -9,6 +9,8 @@ import RegistrationForm from '../../forms/RegistrationForm'
 import LoginForm from '../../forms/LoginForm'
 import AccountInfo from '../../components/AccountInfo';
 import LogoutForm from '../../forms/LogoutForm';
+import BasePage from '../../components/BasePage'
+import Section from '../../components/Section';
 
 function Account(props) {
   const [data, setData] = React.useState([])
@@ -21,8 +23,10 @@ function Account(props) {
   }, [])
 
   return (
-    <div>
-      <h1>Войти/Зарегистрироваться</h1>
+    <BasePage title="Аккаунт">
+      <Section title="Вход">
+
+      </Section>
       <main>
         <nav className="additional">
           <Link to="/account">Аккаунт</Link>
@@ -61,7 +65,7 @@ function Account(props) {
           </Route>
         </Switch>
       </main>
-    </div>
+    </BasePage>
   )
 }
 

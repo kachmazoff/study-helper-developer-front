@@ -3,6 +3,8 @@ import Main from './Main'
 import NotFound from './NotFound'
 import Articles from './Articles'
 import Account from './Account'
+import Favourites from './Favourites'
+import Lab from './Lab'
 
 export {
     ArticleTypeApiRef,
@@ -10,4 +12,6 @@ export {
     NotFound,
     Articles,
     Account,
+    Favourites,
+    Lab,
 }

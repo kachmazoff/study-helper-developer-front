@@ -1,14 +1,18 @@
 body {
-  background-color: #eaeaea;
+  background-color: #eeeeee;
+  margin-bottom: 5rem;
 }
 
 h1 {
-   text-align: center;
- }
+   /* text-align: center; */
+  color: var(--blue);
+  font-size: 4rem;
+  padding: 2rem 0;
+}
 
 main {
-  width: 1200px;
-  max-width: 90%;
+  /* width: 1200px; */
+  /* max-width: 90%; */
   padding: 1rem;
   border-radius: 5px;
   margin: 0 auto;
