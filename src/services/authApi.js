@@ -13,6 +13,9 @@ function registration(username, password) {
     },
     body: JSON.stringify(body)
   })
+  .then(response => {
+    login(username, password)
+  })
 }
 
 function login(username, password) {
