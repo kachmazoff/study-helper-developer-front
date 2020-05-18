@@ -9,6 +9,7 @@ import ArticlesList from '../../components/ArticlesList';
 import ArticlePreview from '../../components/ArticlePreview';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Card from '../../components/Card';
 
 function ArticlesView(props) {
   const [data, setData] = React.useState([])
@@ -40,14 +41,16 @@ function ArticlesView(props) {
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)
-        && <Row>
-          <Col md={6}>
-            <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
-          </Col>
-          <Col md={6}>
-            <ArticlesList data={data.slice(data.length / 2)} component={ArticlePreview} />
-          </Col>
-        </Row>
+        && <Card type="light">
+          <Row>
+            <Col md={6}>
+              <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
+            </Col>
+            <Col md={6}>
+              <ArticlesList data={data.slice(data.length / 2)} component={ArticlePreview} />
+            </Col>
+          </Row>
+        </Card>
       }
       {
         (!isLoading && Array.isArray(data) && data.length === 0)

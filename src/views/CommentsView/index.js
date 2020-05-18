@@ -2,23 +2,25 @@ import React from 'react'
 
 import CommentsList from '../../components/CommentsList'
 import { getComments } from '../../services/commentsApi'
-import Card from '../../components/Card'
+import Section from '../../components/Section'
 
-function CommentsView({articleId}) {
+
+function CommentsView({ articleId }) {
   const [data, setData] = React.useState(null)
   React.useEffect(() => {
     getComments(articleId)
-    .then(setData)
+      .then(setData)
   }, [articleId])
 
   return (
     <>
       {
         Array.isArray(data) && data.length > 0
-        && <Card>
-          <h4>Комментарии: </h4>
-          <CommentsList data={data} />
-        </Card>
+        && (
+          <Section title="Комментарии:" type="light">
+            <CommentsList data={data} />
+          </Section>
+        )
       }
     </>
   )

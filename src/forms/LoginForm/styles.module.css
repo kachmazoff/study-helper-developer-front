@@ -1,17 +1,3 @@
-.form>div>input {
-    /* width: 60%; */
-}
-
-.form>div>select {
-    width: 30%;
-    /* height: 33px; */
-}
-
-.form textarea {
-    min-height: 400px;
-    resize: vertical;
-}
-
 .accent_button {
     background-color: #4E57AA !important;
     border-color: #4E57AA !important;
@@ -20,4 +6,9 @@
 .accent_button:hover {
     background-color: #3D4595 !important;
     border-color: #3D4595 !important;
+}
+
+.input_text {
+    background: #2C2C2C !important;
+    color: white;
 }

@@ -1,0 +1,13 @@
+background: #232323
+card: #2C2C2C
+
+accent: #4E57AA
+accent for hover: #3D4595
+
+danger (red): #FF5858
+
+text (grey): #BFBFBF
+text (fantom): #555555
+
+main menu icons: #6D717A
+main menu active icons: #6F7ADC
