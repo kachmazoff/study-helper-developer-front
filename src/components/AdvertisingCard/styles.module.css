@@ -10,3 +10,12 @@
 p.text {
     margin-bottom: 0;
 }
+
+.link {
+    text-decoration: underline;
+    /* color: #BFBFBF; */
+    color: #FF5858;
+}
+.link:hover {
+    color: rgb(224, 65, 65);
+}
