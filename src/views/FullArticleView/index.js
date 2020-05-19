@@ -27,9 +27,7 @@ function FullArticleView(props) {
           ? <p>Загрузка...</p>
           : (
             <>
-              <Card color="white">
-                <ArticleFull data={data} views={views} />
-              </Card>
+              <ArticleFull data={data} views={views} />
               {
                 isAuthenticated()
                 && <>

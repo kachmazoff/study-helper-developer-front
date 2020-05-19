@@ -4,6 +4,7 @@
     background: none;
     border: none;
     padding: 0;
+    color: #555555;
 }
 
 .action:active, .action:focus {
@@ -21,4 +22,20 @@
 
 .username {
     padding-left: 1rem;
+    color: white;
+}
+
+.userInfo {
+    color: white;
+    cursor: pointer;
+}
+
+.red_button {
+    background-color: #FF5858 !important;
+    border-color: #FF5858 !important;
+}
+
+.red_button:hover {
+    background-color: #c03d3d !important;
+    border-color: #c03d3d !important;
 }

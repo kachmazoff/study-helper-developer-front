@@ -18,8 +18,8 @@ function UserCard() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <Card>
-      <div>
+    <Card type="dark">
+      <div className={styles.userInfo} onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={faUser} size="lg" />
         {
           !isAuthenticated()
@@ -40,7 +40,7 @@ function UserCard() {
               ?
               <LoginForm />
               :
-              <Button variant="outline-danger" onClick={logout}>Выйти</Button>
+              <Button onClick={logout} className={styles.red_button}>Выйти</Button>
           }
         </div>
       </Collapse>

@@ -17,9 +17,9 @@ import MobileNav from './components/MobileNav';
 function App() {
   return (
     <Router>
-      <Container fluid>
-        <Row>
-          <Col lg={1} className="d-none d-lg-block">
+      <Container fluid className="mx-0 px-0">
+        <Row className="no-gutters">
+          
             <SideNav />
             {/* <nav>
               <Link to="/">Главная</Link>
@@ -28,9 +28,9 @@ function App() {
               {/* <Link to="/users">Пользователи(404)</Link> */}
             {/* <Link to="/account">Аккаунт</Link>
             </nav> */}
-          </Col>
+          
           <Col lg={11}>
-            <Row>
+            <Row className="no-gutters">
 
             {/* <Col lg={12}> */}
             <Col>

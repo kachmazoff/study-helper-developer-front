@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from './styles.module.css'
+
 function CommentForm({onSubmit}) {
   const [text, setText] = React.useState('')
 
@@ -12,7 +14,7 @@ function CommentForm({onSubmit}) {
   }, [onSubmit, text])
 
   return (
-    <form onSubmit={onSubmitLocal}>
+    <form onSubmit={onSubmitLocal} className={styles.form}>
       <textarea placeholder="Комментарий" value={text} onChange={onChange}/>
       <input type="submit" value="Создать"/>
     </form>

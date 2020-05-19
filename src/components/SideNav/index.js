@@ -1,46 +1,49 @@
 import React from 'react'
 
+import Col from 'react-bootstrap/Col'
 import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
-  faHome, 
-  faFlask, 
-  faEllipsisH, 
-  faHeart, 
-  faBookOpen 
+import {
+  faHome,
+  faFlask,
+  faEllipsisH,
+  faHeart,
+  faBookOpen
 } from '@fortawesome/free-solid-svg-icons'
 
 function SideNav() {
   return (
-    <div className={styles.menu}>
-      <Link to="/">
-        <FontAwesomeIcon icon={faHome} size="2x" />
-      </Link>
+    <Col lg={1} className="d-none d-lg-block px-0">
+      <div className={styles.menu}>
+        <NavLink to="/" exact activeClassName={styles.is_active}>
+          <FontAwesomeIcon icon={faHome} size="2x" />
+        </NavLink>
 
-      <Link to="/articles">
-        <FontAwesomeIcon icon={faBookOpen} size="2x" />
-      </Link>
+        <NavLink to="/articles" exact activeClassName={styles.is_active}>
+          <FontAwesomeIcon icon={faBookOpen} size="2x" />
+        </NavLink>
 
-      <Link to="/favourites">
-        <FontAwesomeIcon icon={faHeart} size="2x" />
-      </Link>
+        <NavLink to="/favourites" exact activeClassName={styles.is_active}> 
+          <FontAwesomeIcon icon={faHeart} size="2x" />
+        </NavLink>
 
-      <Link to="/lab">
-        <FontAwesomeIcon icon={faFlask} size="2x" />
-      </Link>
+        <NavLink to="/lab" exact activeClassName={styles.is_active}>
+          <FontAwesomeIcon icon={faFlask} size="2x" />
+        </NavLink>
 
-      <Link to="/account">
-        <FontAwesomeIcon icon={faEllipsisH} size="2x" />
-      </Link>
+        <NavLink to="/account" exact activeClassName={styles.is_active}>
+          <FontAwesomeIcon icon={faEllipsisH} size="2x" />
+        </NavLink>
 
 
 
-      {/* <Link to="/types">Типы</Link> */}
-      {/* <FontAwesomeIcon icon={faPlus} size="2x" /> */}
-      {/* <Link to="/users">Пользователи(404)</Link> */}
-      {/* <Link to="/account">Аккаунт</Link> */}
-    </div>
+        {/* <Link to="/types">Типы</Link> */}
+        {/* <FontAwesomeIcon icon={faPlus} size="2x" /> */}
+        {/* <Link to="/users">Пользователи(404)</Link> */}
+        {/* <Link to="/account">Аккаунт</Link> */}
+      </div>
+    </Col >
   )
 }
 

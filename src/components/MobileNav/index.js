@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faHome, 
@@ -14,32 +14,32 @@ import {
 function MobileNav() {
   return (
     <div className={styles.menu}>
-      <Link to="/">
+      <NavLink to="/" exact activeClassName={styles.is_active}>
         <FontAwesomeIcon icon={faHome} size="lg" />
-      </Link>
+      </NavLink>
 
-      <Link to="/articles">
+      <NavLink to="/articles" exact activeClassName={styles.is_active}>
         <FontAwesomeIcon icon={faBookOpen} size="lg" />
-      </Link>
+      </NavLink>
 
-      <Link to="/favourites">
+      <NavLink to="/favourites" exact activeClassName={styles.is_active}>
         <FontAwesomeIcon icon={faHeart} size="lg" />
-      </Link>
+      </NavLink>
 
-      <Link to="/lab">
+      <NavLink to="/lab" exact activeClassName={styles.is_active}>
         <FontAwesomeIcon icon={faFlask} size="lg" />
-      </Link>
+      </NavLink>
 
-      <Link to="/account">
+      <NavLink to="/account" exact activeClassName={styles.is_active}>
         <FontAwesomeIcon icon={faEllipsisH} size="lg" />
-      </Link>
+      </NavLink>
 
 
 
-      {/* <Link to="/types">Типы</Link> */}
+      {/* <NavLink to="/types">Типы</NavLink> */}
       {/* <FontAwesomeIcon icon={faPlus} size="2x" /> */}
-      {/* <Link to="/users">Пользователи(404)</Link> */}
-      {/* <Link to="/account">Аккаунт</Link> */}
+      {/* <NavLink to="/users">Пользователи(404)</NavLink> */}
+      {/* <NavLink to="/account">Аккаунт</NavLink> */}
     </div>
   )
 }

@@ -3,9 +3,9 @@ import React from 'react'
 import styles from './styles.module.css'
 import Card from '../Card'
 
-function Section({ title, children }) {
+function Section({ title, children, type }) {
   return (
-    <Card>
+    <Card type={type}>
       <h2 className={styles.title}>{title}</h2>
       {children}
     </Card>

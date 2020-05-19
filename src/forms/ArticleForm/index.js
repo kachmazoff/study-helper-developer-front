@@ -64,7 +64,7 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
         </FormControl>
       </InputGroup>
       <textarea placeholder="Текст статьи" onChange={onChangeContent} value={editableData.content} />
-      <Button type="submit">{actionText}</Button>
+      <Button type="submit" className={styles.accent_button}>{actionText}</Button>
     </form>
   )
 }
