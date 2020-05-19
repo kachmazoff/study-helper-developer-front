@@ -4,17 +4,22 @@
     /* padding: 0.5rem 2rem; */
 }
 
+.title h2 {
+    color: white;
+}
+
 .title h3 {
     margin-bottom: 0.3rem;
 }
 
 .title p {
     margin-top: 0.3rem;
-    color: gray;
+    color: #555555;
 }
 
 .content {
     padding-top: 1rem;
+    color: #eaeaea;
 }
 /* 
 .info {

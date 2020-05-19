@@ -1,8 +1,22 @@
 .card {
-    background-color: #EFEEEE;
-    box-shadow: -6px -6px 26px 0 rgba(255,255,255,0.83), 6px 6px 16px 0 rgba(217,210,200,0.51);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-
     padding: 1rem;
+}
+
+.card_light {
+    background-color: #2C2C2C;
+}
+
+.card_dark {
+    background-color: #232323;
+}
+
+.card_accent {
+    background-color: #4E57AA;
+}
+
+@media screen and (max-width: 830px) {
+    .card {
+        border-radius: 0px;
+    }    
 }

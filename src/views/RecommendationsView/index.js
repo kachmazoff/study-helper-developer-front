@@ -5,6 +5,8 @@ import ArticlePreview from '../../components/ArticlePreview'
 import { getRecommendationsForArticle } from '../../services/recommendationApi'
 import Card from '../../components/Card'
 
+import styles from './styles.module.css'
+
 function RecommendationsView({ articleId }) {
   const [data, setData] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(false)
@@ -28,8 +30,8 @@ function RecommendationsView({ articleId }) {
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)
-        && <Card>
-          <h4>Советуем просмотреть: </h4>
+        && <Card type="light">
+          <h4 className={styles.title} >Советуем просмотреть: </h4>
           <ArticlesList data={data} component={ArticlePreview} />
         </Card>
       }

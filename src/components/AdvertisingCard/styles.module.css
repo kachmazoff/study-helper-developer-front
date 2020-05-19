@@ -1,0 +1,12 @@
+.title {
+    color: white;
+}
+
+.text {
+    color: #BFBFBF;
+    /* color: #555555; */
+}
+
+p.text {
+    margin-bottom: 0;
+}

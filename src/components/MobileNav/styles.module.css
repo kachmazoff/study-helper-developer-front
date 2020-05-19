@@ -1,7 +1,7 @@
 .menu {
-    background-color: #EFEEEE;
-    box-shadow: -6px -6px 26px 0 rgba(255,255,255,0.83), 6px 6px 16px 0 rgba(217,210,200,0.51);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #2C2C2C;
+    /* box-shadow: -6px -6px 26px 0 rgba(255,255,255,0.83), 6px 6px 16px 0 rgba(217,210,200,0.51); */
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
 
     width: 96%;
     display: flex;
@@ -11,7 +11,7 @@
     bottom: 1rem;
     left: 2%;
 
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 0.8rem 1.5rem;
     text-align: center;
 }
@@ -24,4 +24,18 @@
 .menu a:hover {
     /* background-color: #1e1e1e; */
     /* color: white; */
+}
+
+.menu a, .menu a:visited {
+    /* padding: 0.3rem 1rem; */
+    color: #6D717A;
+}
+  
+.menu a:hover {
+    /* background-color: #1e1e1e; */
+    color: #6D717A;
+}
+
+.menu a.is_active {
+    color: #6F7ADC;
 }
