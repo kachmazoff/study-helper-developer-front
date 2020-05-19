@@ -5,13 +5,13 @@ import Card from '../Card'
 import styles from './styles.module.css'
 
 function AdvertisingCard() {
-    // <Section title="Реклама" type="accent">
-    //   <h4>Реклама</h4>
-    // </Section>
   return (
     <Card type="accent">
       <h5 className={styles.title}>Реклама</h5>
-      <p className={styles.text}>Тут может быть ваша реклама</p>
+      {/* <p>Steganography</p> */}
+      <p className={styles.text}>Steganography - лучшее приложение для сокрытия информации в изображениях!</p>
+      {/* <p className={styles.text}>Тут может быть ваша реклама</p> */}
+      <a href="https://play.google.com/store/apps/details?id=com.leonid.steganography" className={styles.link}>Перейти в Google Play</a>
     </Card>
   )
 }
