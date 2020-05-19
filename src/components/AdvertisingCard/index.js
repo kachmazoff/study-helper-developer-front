@@ -11,7 +11,7 @@ function AdvertisingCard() {
       {/* <p>Steganography</p> */}
       <p className={styles.text}>Steganography - лучшее приложение для сокрытия информации в изображениях!</p>
       {/* <p className={styles.text}>Тут может быть ваша реклама</p> */}
-      <a href="https://play.google.com/store/apps/details?id=com.leonid.steganography" className={styles.link}>Перейти в Google Play</a>
+      <a href="https://play.google.com/store/apps/details?id=com.leonid.steganography" className={styles.link} target="_blank" rel="noopener noreferrer">Перейти в Google Play</a>
     </Card>
   )
 }
