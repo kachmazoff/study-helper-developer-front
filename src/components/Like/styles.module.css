@@ -1,0 +1,15 @@
+.like_active {
+    color: #6F7ADC;
+    right: 3rem;
+    top: 1.2rem;
+    position: absolute;
+    cursor: pointer;
+}
+
+.like {
+    color: #6D717A;
+    right: 3rem;
+    top: 1.2rem;
+    position: absolute;
+    cursor: pointer;
+}
