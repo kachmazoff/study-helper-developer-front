@@ -1,7 +1,6 @@
 import React from 'react'
 
 import InputGroup from 'react-bootstrap/InputGroup'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
 
@@ -51,11 +50,13 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
           value={editableData.title}
           onChange={onChangeTitle}
           required
+          className={styles.header}
         />
         <FormControl
           as="select"
           onChange={onSelect}
           value={editableData.type && editableData.type.id}
+          className={styles.type}
         >
           <option readOnly>Тип</option>
           {

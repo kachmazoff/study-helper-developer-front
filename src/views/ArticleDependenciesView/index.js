@@ -2,6 +2,7 @@ import React from 'react'
 
 import { searchArticles } from '../../services/searchApi'
 import { getDependencies, addDependencies } from '../../services/articlesApi'
+import MyLoader from '../../components/MyLoader'
 
 function ArticleDependenciesView({ articleId }) {
   const [articles, setArticles] = React.useState([])
@@ -71,7 +72,7 @@ function ArticleDependenciesView({ articleId }) {
 
       <input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Введите запрос"/>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         !isLoading && articles.length === 0 && query !== ""

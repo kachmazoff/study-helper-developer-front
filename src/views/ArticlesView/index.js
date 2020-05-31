@@ -10,6 +10,7 @@ import ArticlePreview from '../../components/ArticlePreview';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Card from '../../components/Card';
+import MyLoader from '../../components/MyLoader';
 
 function ArticlesView(props) {
   const [data, setData] = React.useState([])
@@ -37,7 +38,7 @@ function ArticlesView(props) {
   return (
     <div>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)

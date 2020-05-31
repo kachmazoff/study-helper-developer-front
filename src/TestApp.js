@@ -14,6 +14,8 @@ import Col from 'react-bootstrap/Col'
 import SideNav from './components/SideNav';
 import MobileNav from './components/MobileNav';
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 function App() {
   return (
     <Router>

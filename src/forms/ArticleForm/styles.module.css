@@ -10,6 +10,24 @@
 .form textarea {
     min-height: 400px;
     resize: vertical;
+    background-color: #2C2C2C;
+    /* border: none; */
+    border-color: rgb(58, 58, 58);
+    color: white;
+}
+
+.type:focus, .type:active, .type{
+    background-color: #2C2C2C;
+    /* border: none; */
+    border-color: rgb(58, 58, 58);
+    color: white;
+}
+
+.header:focus, .header:active, .header {
+    background-color: #2C2C2C;
+    /* border: none; */
+    border-color: rgb(58, 58, 58);
+    color: white;
 }
 
 .accent_button {

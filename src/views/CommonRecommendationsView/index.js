@@ -5,6 +5,7 @@ import ArticlesList from '../../components/ArticlesList';
 import ArticlePreview from '../../components/ArticlePreview';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import MyLoader from '../../components/MyLoader'
 
 function CommonRecommendationsView() {
   const [data, setData] = React.useState([])
@@ -24,7 +25,7 @@ function CommonRecommendationsView() {
   return (
     <div>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)
