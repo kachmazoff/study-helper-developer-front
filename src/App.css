@@ -11,6 +11,14 @@ h1 {
   padding: 2rem 0;
 }
 
+h3 {
+  /* text-align: center; */
+ /* color: var(--blue); */
+ color: white;
+ font-size: 2rem;
+ padding: 2rem 0;
+}
+
 main {
   /* width: 1200px; */
   /* max-width: 90%; */

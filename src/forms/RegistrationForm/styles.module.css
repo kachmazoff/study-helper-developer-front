@@ -1,0 +1,14 @@
+.accent_button {
+    background-color: #4E57AA !important;
+    border-color: #4E57AA !important;
+}
+
+.accent_button:hover {
+    background-color: #3D4595 !important;
+    border-color: #3D4595 !important;
+}
+
+.input_text {
+    background: #2C2C2C !important;
+    color: white;
+}
