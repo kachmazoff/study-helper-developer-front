@@ -11,6 +11,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Card from '../../components/Card';
 import MyLoader from '../../components/MyLoader';
+import styles from './styles.module.css'
 
 function ArticlesView(props) {
   const [data, setData] = React.useState([])
@@ -38,7 +39,7 @@ function ArticlesView(props) {
   return (
     <div>
       {
-        isLoading && <MyLoader />
+        isLoading && <div className={ styles.div_modify }><MyLoader height={300} width={300}/></div>
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)

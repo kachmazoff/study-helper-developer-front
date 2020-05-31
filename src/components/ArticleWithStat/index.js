@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import ListGroup from 'react-bootstrap/ListGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import { getArticleViews } from '../../services/articlesApi'
+import styles from './styles.module.css'
 
 function ArticleWithStat({ data }) {
   const [views, setViews] = React.useState(null)
@@ -33,10 +34,10 @@ function ArticleWithStat({ data }) {
     //   </InputGroup>
     // </div>
     <InputGroup className="mb-3">
-      <FormControl readOnly value={data.title} />
+      <FormControl readOnly value={data.title} className={styles.back_color}/>
       <InputGroup.Append>
-        <InputGroup.Text style={{width: '70px'}}>{views}</InputGroup.Text>
-        <Button variant="outline-secondary" as={Link} to={`/lab/articles/${data.id}/edit`}>Редактировать</Button>
+        <InputGroup.Text style={{width: '70px'}} className={styles.back_color}>{views}</InputGroup.Text>
+        <Button variant="outline-secondary" as={Link} to={`/lab/articles/${data.id}/edit`} className={styles.accent_button}>Редактировать</Button>
       </InputGroup.Append>
     </InputGroup>
   )
