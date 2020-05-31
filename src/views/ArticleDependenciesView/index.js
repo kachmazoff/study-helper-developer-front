@@ -3,6 +3,7 @@ import React from 'react'
 import { searchArticles } from '../../services/searchApi'
 import { getDependencies, addDependencies } from '../../services/articlesApi'
 import MyLoader from '../../components/MyLoader'
+import styles from './styles.module.css'
 
 function ArticleDependenciesView({ articleId }) {
   const [articles, setArticles] = React.useState([])
@@ -50,7 +51,7 @@ function ArticleDependenciesView({ articleId }) {
           <h3>Зависимости:</h3>
           {
             dependencies.map(dep => (
-              <p>{dep.title}</p>
+              <p className={ styles.text_modify }>{dep.title}</p>
             ))
           }
         </>
@@ -81,7 +82,7 @@ function ArticleDependenciesView({ articleId }) {
       {
         articles.length !== 0
         && articles.map(article => (
-          <div>
+          <div className={ styles.div_modify }>
             {article.title}
             <button onClick={() => {
               let newDeps = [...newDependencies, article]
