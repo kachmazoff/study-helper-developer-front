@@ -6,7 +6,6 @@ import CommentsView from '../../views/CommentsView'
 import { isAuthenticated } from '../../services/authApi'
 import CommentCreateView from '../CommentCreateView'
 import RecommendationsView from '../RecommendationsView'
-import Card from '../../components/Card'
 import MyLoader from '../../components/MyLoader'
 
 function FullArticleView(props) {

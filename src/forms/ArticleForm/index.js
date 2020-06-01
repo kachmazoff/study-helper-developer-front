@@ -22,9 +22,6 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
   const onSelect = React.useCallback((event) => {
     const formCopy = { ...editableData }
 
-    // formCopy.type = {
-    //   id: event.target.value
-    // }
     formCopy.type = types.find(x => x.id == event.target.value)
     setEditableData(formCopy)
   }, [editableData, types])

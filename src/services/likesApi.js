@@ -1,6 +1,6 @@
 import { getQuery, postQuery } from './commonApi'
 
-const endpoint = '/api/likes'
+const endpoint = '/likes'
 
 function checkLike(articleId){
     return getQuery(endpoint + `/check/${articleId}`)

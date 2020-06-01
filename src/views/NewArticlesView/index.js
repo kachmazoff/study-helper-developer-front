@@ -43,15 +43,6 @@ function NewArticlesView({ extended }) {
               <ArticlesList data={data.slice(0, Math.min(data.length, 5))} component={ArticlePreview} />
           }
         </>
-
-        // <Row>
-        //   <Col md={6}>
-        //     <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
-        //   </Col>
-        //   <Col md={6}>
-        //     <ArticlesList data={data.slice(data.length / 2 + 1)} component={ArticlePreview} />
-        //   </Col>
-        // </Row>
       }
       {
         (!isLoading && Array.isArray(data) && data.length === 0)

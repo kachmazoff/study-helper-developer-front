@@ -18,15 +18,6 @@ function ArticleDependenciesView({ articleId }) {
       .then(setDependencies)
   }, [articleId])
 
-  // React.useEffect(() => {
-  //   let newArticles = articles.filter((article => dependencies.every(dep => dep.id !== article.id)))
-  //   if (newArticles.length !== articles.length)
-  //     setArticles(newArticles)
-  //   newArticles = newArticles.filter((article => newDependencies.every(dep => dep.id !== article.id)))
-  //   if (newArticles.length !== newDependencies.length)
-  //     setArticles(newArticles)
-  // }, [articles, dependencies, newDependencies])
-
   React.useEffect(() => {
     if (query === "") {
       setArticles([])

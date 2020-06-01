@@ -1,14 +1,7 @@
 import React from 'react'
 
-import {
-  useLocation
-} from "react-router-dom";
-
-import { getArticles, getArticlesByType } from '../../services/articlesApi'
 import ArticlesList from '../../components/ArticlesList';
 import ArticlePreview from '../../components/ArticlePreview';
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import Card from '../../components/Card';
 import MyLoader from '../../components/MyLoader';
 import styles from './styles.module.css'
@@ -34,19 +27,12 @@ function FavoriteArticlesView(props) {
       {
         (!isLoading && Array.isArray(data) && data.length > 0)
         && <Card type="light">
-          <Row>
-            <Col md={6}>
-              <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
-            </Col>
-            <Col md={6}>
-              <ArticlesList data={data.slice(data.length / 2)} component={ArticlePreview} />
-            </Col>
-          </Row>
+            <ArticlesList data={data} component={ArticlePreview} />
         </Card>
       }
       {
         (!isLoading && Array.isArray(data) && data.length === 0)
-        && <p>Ничего не найдено :-(</p>
+        && <h4 className={styles.notice}>Вы ещё не лайкнули ни одну статью</h4>
       }
     </div>
   )

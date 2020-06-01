@@ -40,10 +40,7 @@ function ArticleEditView({ id }) {
       {
         (!isLoading && data && types)
         && (
-        <>
           <ArticleForm types={types} data={data} onSubmit={onSubmit} actionText="Изменить"/>
-          <ArticleDependenciesView articleId={id}/>
-        </>
         )
       }
       {
