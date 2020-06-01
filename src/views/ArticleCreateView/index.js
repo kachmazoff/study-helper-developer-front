@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react'
-import { getArticle, editArticle, createArticle } from '../../services/articlesApi'
+import { createArticle } from '../../services/articlesApi'
 import { getTypes } from '../../services/articlesTypesApi'
 import ArticleForm from '../../forms/ArticleForm'
+import MyLoader from '../../components/MyLoader';
 
 function ArticleCreateView(props) {
   const [data, setData] = React.useState({})
@@ -28,7 +29,7 @@ function ArticleCreateView(props) {
   return (
     <div>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         (!isLoading && data && types)

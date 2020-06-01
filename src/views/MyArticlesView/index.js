@@ -2,8 +2,8 @@ import React from 'react'
 
 import { getMyArticles } from '../../services/articlesApi'
 import ArticlesList from '../../components/ArticlesList'
-import ArticlePreview from '../../components/ArticlePreview'
 import ArticleWithStat from '../../components/ArticleWithStat'
+import MyLoader from '../../components/MyLoader'
 
 function MyArticlesView(props) {
   const [data, setData] = React.useState([])
@@ -21,7 +21,7 @@ function MyArticlesView(props) {
   return (
     <div>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)

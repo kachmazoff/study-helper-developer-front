@@ -2,7 +2,7 @@ import React from 'react'
 
 import Col from 'react-bootstrap/Col'
 import styles from './styles.module.css'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHome,
@@ -35,13 +35,6 @@ function SideNav() {
         <NavLink to="/account" exact activeClassName={styles.is_active}>
           <FontAwesomeIcon icon={faEllipsisH} size="2x" />
         </NavLink>
-
-
-
-        {/* <Link to="/types">Типы</Link> */}
-        {/* <FontAwesomeIcon icon={faPlus} size="2x" /> */}
-        {/* <Link to="/users">Пользователи(404)</Link> */}
-        {/* <Link to="/account">Аккаунт</Link> */}
       </div>
     </Col >
   )

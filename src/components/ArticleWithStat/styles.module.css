@@ -1,0 +1,17 @@
+.back_color {
+    background-color: #2C2C2C !important;
+    border-color: rgb(58, 58, 58);
+    color: white;
+}
+
+.accent_button {
+    background-color: #4E57AA !important;
+    border-color: #4E57AA !important;
+    color: white;
+}
+
+.accent_button:hover {
+    background-color: #3D4595 !important;
+    border-color: #3D4595 !important;
+    color: white;
+}

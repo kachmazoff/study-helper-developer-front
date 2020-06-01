@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { createType } from '../../services/articlesTypesApi'
+import styles from './styles.module.css'
 
 function CreateArticleTypeForm() {
   const [name, setName] = React.useState(null)
@@ -17,9 +18,9 @@ function CreateArticleTypeForm() {
   }, [])
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={styles.form}>
       <input type="text" value={name} onChange={onChange} placeholder="Название типа"/>
-      <input type="submit" value="Создать" disabled={!name}/>
+      <input type="submit" value="Создать" disabled={!name} />
     </form>
   )
 }

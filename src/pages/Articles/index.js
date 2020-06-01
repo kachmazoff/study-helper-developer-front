@@ -3,11 +3,9 @@ import React from 'react'
 import {
   Switch,
   Route,
-  Link
 } from "react-router-dom"
 
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
 
 import FullArticleView from '../../views/FullArticleView'
 import ArticlesView from '../../views/ArticlesView'
@@ -20,7 +18,6 @@ import ProtectedRoute from '../../HOC/ProtectedRoute'
 
 import UserCard from '../../components/UserCard'
 
-import styles from './styles.module.css'
 import MainColumn from '../../components/MainColumn'
 import RightColumn from '../../components/RightColumn'
 import Row from 'react-bootstrap/Row'

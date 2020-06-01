@@ -1,7 +1,6 @@
 import React from 'react'
 
 import InputGroup from 'react-bootstrap/InputGroup'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
 
@@ -23,9 +22,6 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
   const onSelect = React.useCallback((event) => {
     const formCopy = { ...editableData }
 
-    // formCopy.type = {
-    //   id: event.target.value
-    // }
     formCopy.type = types.find(x => x.id == event.target.value)
     setEditableData(formCopy)
   }, [editableData, types])
@@ -51,11 +47,13 @@ function ArticleForm({ types, data, actionText, onSubmit }) {
           value={editableData.title}
           onChange={onChangeTitle}
           required
+          className={styles.header}
         />
         <FormControl
           as="select"
           onChange={onSelect}
           value={editableData.type && editableData.type.id}
+          className={styles.type}
         >
           <option readOnly>Тип</option>
           {

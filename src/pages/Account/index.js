@@ -1,20 +1,18 @@
 import React from 'react'
-import {
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 import { getAccountInfo } from '../../services/accountApi'
 import RegistrationForm from '../../forms/RegistrationForm'
 import LoginForm from '../../forms/LoginForm'
-import AccountInfo from '../../components/AccountInfo';
 import LogoutForm from '../../forms/LogoutForm';
-import BasePage from '../../components/BasePage'
-import Section from '../../components/Section';
+import MainColumn from '../../components/MainColumn';
+import Row from 'react-bootstrap/Row';
+import RightColumn from '../../components/RightColumn';
+import Col from 'react-bootstrap/Col';
+import { isAuthenticated } from '../../services/authApi'
+import UserCard from '../../components/UserCard'
+import AdvertisingCard from '../../components/AdvertisingCard'
 
 function Account(props) {
-  const [data, setData] = React.useState([])
-  const [isLoading, setIsLoading] = React.useState(false)
   const [account, setAccount] = React.useState(null)
 
   React.useEffect(() => {
@@ -23,49 +21,51 @@ function Account(props) {
   }, [])
 
   return (
-    <BasePage title="Аккаунт">
-      <Section title="Вход">
-
-      </Section>
-      <main>
-        <nav className="additional">
-          <Link to="/account">Аккаунт</Link>
-          <Link to="/account/login" disabled>Войти</Link>
-          <Link to="/account/registration">Регистрация</Link>
-          <Link to="/account/logout">Выйти</Link>
-        </nav>
-        <Switch>
-          <Route path="/account/registration">
+    <Row className="no-gutters">
+      <MainColumn>
+        <Row>
+          <Col className="px-0 px-md-3">
             {
-              !account
-                ? <RegistrationForm />
-                : <p>{account.username}, Вы уже вошли в систему</p>
+              isAuthenticated() ? <h1>Мой профиль</h1> : <h1>Войти</h1>
             }
-          </Route>
-          <Route path="/account/login">
+          </Col>
+          <Col className="px-0 px-md-3">
             {
-              !account
-                ? <LoginForm />
-                : <p>{account.username}, Вы уже вошли в систему</p>
+              !isAuthenticated() && <h1>Регистрация</h1>
             }
-          </Route>
-          <Route path="/account/logout">
-            {
-              !account
-                ? <p>Вы не вошли в систему</p>
-                : <LogoutForm />
-            }
-          </Route>
-          <Route path="/account">
-            {
-              !account
-                ? <p>Вы не вошли в систему</p>
-                : <AccountInfo data={account} />
-            }
-          </Route>
-        </Switch>
-      </main>
-    </BasePage>
+          </Col>
+        </Row>
+        {
+          isAuthenticated()
+            ? <>
+              <Row>
+                <Col xs={12} md={12} lg={6} xl={6} className="px-0 px-md-3">
+                  {
+                    !!account && <h3>Вы вошли в систему, как {account.username}</h3>
+                  }
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12} md={12} lg={6} xl={3} className="px-0 px-md-3">
+                  <LogoutForm />
+                </Col>
+              </Row>
+            </>
+            : <Row>
+              <Col className="px-0 px-md-3">
+                <LoginForm />
+              </Col>
+              <Col className="px-0 px-md-3">
+                <RegistrationForm />
+              </Col>
+            </Row>
+        }
+      </MainColumn>
+      <RightColumn>
+        <UserCard />
+        <AdvertisingCard />
+      </RightColumn>
+    </Row>
   )
 }
 

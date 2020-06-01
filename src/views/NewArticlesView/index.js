@@ -5,6 +5,7 @@ import ArticlesList from '../../components/ArticlesList';
 import ArticlePreview from '../../components/ArticlePreview';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import MyLoader from '../../components/MyLoader';
 
 function NewArticlesView({ extended }) {
   const [data, setData] = React.useState([])
@@ -22,7 +23,7 @@ function NewArticlesView({ extended }) {
   return (
     <div>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)
@@ -42,15 +43,6 @@ function NewArticlesView({ extended }) {
               <ArticlesList data={data.slice(0, Math.min(data.length, 5))} component={ArticlePreview} />
           }
         </>
-
-        // <Row>
-        //   <Col md={6}>
-        //     <ArticlesList data={data.slice(0, data.length / 2)} component={ArticlePreview} />
-        //   </Col>
-        //   <Col md={6}>
-        //     <ArticlesList data={data.slice(data.length / 2 + 1)} component={ArticlePreview} />
-        //   </Col>
-        // </Row>
       }
       {
         (!isLoading && Array.isArray(data) && data.length === 0)

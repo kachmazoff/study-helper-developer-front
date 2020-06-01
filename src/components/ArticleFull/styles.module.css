@@ -17,6 +17,13 @@
     color: #555555;
 }
 
+.like {
+    position: absolute;
+    color: white;
+    right: 3rem;
+    top: 1.2rem;
+}
+
 .content {
     padding-top: 1rem;
     color: #eaeaea;

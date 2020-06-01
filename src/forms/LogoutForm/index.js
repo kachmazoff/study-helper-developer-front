@@ -1,6 +1,9 @@
 import React from 'react'
 
 import { logout } from '../../services/authApi'
+import Button from 'react-bootstrap/Button'
+
+import styles from './styles.module.css'
 
 function LogoutForm() {
   const onSubmit = React.useCallback((event) => {
@@ -10,7 +13,9 @@ function LogoutForm() {
 
   return (
     <form onSubmit={onSubmit}>
-      <input type="submit" value="Выйти"/>
+      <Button type="submit" className={styles.accent_button}>
+        Выйти
+      </Button>
     </form>
   )
 }
