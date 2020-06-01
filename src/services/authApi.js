@@ -36,15 +36,12 @@ function login(username, password) {
   .then(response => {
     saveToken(response.headers.get('Authorization'))
     document.location.reload();
-
-    // document.location = document.location
   });
 }
 
 function logout() {
   localStorage.removeItem('token')
   document.location.reload();
-  // document.location = document.location
 }
 
 function saveToken(token) {
@@ -56,7 +53,14 @@ function getToken() {
 }
 
 function isAuthenticated() {
-  return !!getToken()
+  let token = getToken();
+  let flag = true;
+  try {
+    JSON.parse(atob(token.split('.')[1]))
+  } catch (error) {
+    flag = false;
+  }
+  return !!getToken() && flag
 }
 
 function getUsername() {

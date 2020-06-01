@@ -6,6 +6,7 @@ import { getRecommendationsForArticle } from '../../services/recommendationApi'
 import Card from '../../components/Card'
 
 import styles from './styles.module.css'
+import MyLoader from '../../components/MyLoader'
 
 function RecommendationsView({ articleId }) {
   const [data, setData] = React.useState([])
@@ -26,7 +27,7 @@ function RecommendationsView({ articleId }) {
     <>
       {/* <div> */}
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         (!isLoading && Array.isArray(data) && data.length > 0)

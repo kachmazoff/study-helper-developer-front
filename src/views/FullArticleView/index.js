@@ -6,7 +6,7 @@ import CommentsView from '../../views/CommentsView'
 import { isAuthenticated } from '../../services/authApi'
 import CommentCreateView from '../CommentCreateView'
 import RecommendationsView from '../RecommendationsView'
-import Card from '../../components/Card'
+import MyLoader from '../../components/MyLoader'
 
 function FullArticleView(props) {
   const [data, setData] = React.useState(null)
@@ -24,7 +24,7 @@ function FullArticleView(props) {
     <div>
       {
         !data
-          ? <p>Загрузка...</p>
+          ? <MyLoader />
           : (
             <>
               <ArticleFull data={data} views={views} />

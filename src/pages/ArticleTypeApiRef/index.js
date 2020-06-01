@@ -10,6 +10,7 @@ import CreateArticleTypeForm from '../../forms/CreateArticleTypeForm';
 import TypeView from '../../components/TypeView'
 import TypeEditForm from '../../forms/TypeEditForm';
 import ProtectedRoute from '../../HOC/ProtectedRoute';
+import MyLoader from '../../components/MyLoader';
 
 function ArticleTypeRefId(props) {
   const [types, setTypes] = React.useState([])
@@ -39,7 +40,7 @@ function ArticleTypeRefId(props) {
             {
               !isLoading
                 ? <button type="button" onClick={fetchTypes}>Запрос</button>
-                : <p>Загрузка...</p>
+                : <MyLoader />
             }
             
             {

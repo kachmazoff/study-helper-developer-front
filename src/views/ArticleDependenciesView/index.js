@@ -2,6 +2,8 @@ import React from 'react'
 
 import { searchArticles } from '../../services/searchApi'
 import { getDependencies, addDependencies } from '../../services/articlesApi'
+import MyLoader from '../../components/MyLoader'
+import styles from './styles.module.css'
 
 function ArticleDependenciesView({ articleId }) {
   const [articles, setArticles] = React.useState([])
@@ -15,15 +17,6 @@ function ArticleDependenciesView({ articleId }) {
     getDependencies(articleId)
       .then(setDependencies)
   }, [articleId])
-
-  // React.useEffect(() => {
-  //   let newArticles = articles.filter((article => dependencies.every(dep => dep.id !== article.id)))
-  //   if (newArticles.length !== articles.length)
-  //     setArticles(newArticles)
-  //   newArticles = newArticles.filter((article => newDependencies.every(dep => dep.id !== article.id)))
-  //   if (newArticles.length !== newDependencies.length)
-  //     setArticles(newArticles)
-  // }, [articles, dependencies, newDependencies])
 
   React.useEffect(() => {
     if (query === "") {
@@ -49,7 +42,7 @@ function ArticleDependenciesView({ articleId }) {
           <h3>Зависимости:</h3>
           {
             dependencies.map(dep => (
-              <p>{dep.title}</p>
+              <p className={ styles.text_modify }>{dep.title}</p>
             ))
           }
         </>
@@ -71,7 +64,7 @@ function ArticleDependenciesView({ articleId }) {
 
       <input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Введите запрос"/>
       {
-        isLoading && <p>Загрузка...</p>
+        isLoading && <MyLoader />
       }
       {
         !isLoading && articles.length === 0 && query !== ""
@@ -80,7 +73,7 @@ function ArticleDependenciesView({ articleId }) {
       {
         articles.length !== 0
         && articles.map(article => (
-          <div>
+          <div className={ styles.div_modify }>
             {article.title}
             <button onClick={() => {
               let newDeps = [...newDependencies, article]

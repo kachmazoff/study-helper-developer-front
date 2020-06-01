@@ -1,4 +1,4 @@
-import { getQuery, postQuery } from './commonApi'
+import { getQuery } from './commonApi'
 import { getToken } from './authApi'
 
 const endpoint = '/account'

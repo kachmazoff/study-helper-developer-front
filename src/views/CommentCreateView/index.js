@@ -16,13 +16,11 @@ function CommentCreateView({ articleId }) {
 
   return (
     <Card>
-      {/* <div> */}
       {
         isLoading
           ? <p>Подождите...</p>
           : <CommentForm onSubmit={onSubmit} />
       }
-      {/* </div> */}
     </Card>
   )
 }
