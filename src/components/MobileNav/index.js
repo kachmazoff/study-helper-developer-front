@@ -33,13 +33,6 @@ function MobileNav() {
       <NavLink to="/account" exact activeClassName={styles.is_active}>
         <FontAwesomeIcon icon={faEllipsisH} size="lg" />
       </NavLink>
-
-
-
-      {/* <NavLink to="/types">Типы</NavLink> */}
-      {/* <FontAwesomeIcon icon={faPlus} size="2x" /> */}
-      {/* <NavLink to="/users">Пользователи(404)</NavLink> */}
-      {/* <NavLink to="/account">Аккаунт</NavLink> */}
     </div>
   )
 }

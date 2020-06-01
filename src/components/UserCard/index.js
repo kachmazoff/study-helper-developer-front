@@ -28,7 +28,6 @@ function UserCard() {
             :
             <span className={styles.username}>{getUsername()}</span>
         }
-        {/* @{data.username} */}
         <button onClick={() => setIsOpen(!isOpen)} className={styles.action}>
           <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} size="lg" />
         </button>
