@@ -21,7 +21,6 @@ function LoginForm() {
       <Button type="submit" className={styles.accent_button}>
         Войти
       </Button>
-      {/* <input type="submit" value="Войти" /> */}
     </form>
   )
 }

@@ -25,7 +25,6 @@ function RecommendationsView({ articleId }) {
 
   return (
     <>
-      {/* <div> */}
       {
         isLoading && <MyLoader />
       }
@@ -33,10 +32,9 @@ function RecommendationsView({ articleId }) {
         (!isLoading && Array.isArray(data) && data.length > 0)
         && <Card type="light">
           <h4 className={styles.title} >Советуем просмотреть: </h4>
-          <ArticlesList data={data} component={ArticlePreview} />
+          <ArticlesList data={data.slice(0, Math.min(data.length, 5))} component={ArticlePreview} />
         </Card>
       }
-      {/* </div> */}
     </>
   )
 }

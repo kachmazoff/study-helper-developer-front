@@ -16,7 +16,6 @@ function App() {
           <Link to="/">Главная</Link>
           <Link to="/articles">Статьи</Link>
           <Link to="/types">Типы</Link>
-          {/* <Link to="/users">Пользователи(404)</Link> */}
           <Link to="/account">Аккаунт</Link>
         </nav>
 
